@@ -91,7 +91,7 @@ function HomePageOne() {
             {useMemo(() => (
                 <BlockProductsCarousel
                     title="Featured Products"
-                    layout="grid-4"
+                    layout="grid-5"
                     products={featuredProducts.data}
                     loading={featuredProducts.isLoading}
                     groups={featuredProducts.tabs}
