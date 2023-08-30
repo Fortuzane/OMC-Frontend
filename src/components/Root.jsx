@@ -21,7 +21,6 @@ import { localeChange } from '../store/locale';
 // pages
 import Layout from './Layout';
 import HomePageOne from './home/HomePageOne';
-import HomePageTwo from './home/HomePageTwo';
 
 class Root extends Component {
     componentDidMount() {
@@ -61,12 +60,6 @@ class Root extends Component {
                         <Helmet htmlAttributes={{ lang: locale, dir: direction }} />
                         <ScrollContext shouldUpdateScroll={this.shouldUpdateScroll}>
                             <Switch>
-                                <Route
-                                    path="/home-two"
-                                    render={(props) => (
-                                        <Layout {...props} headerLayout="compact" homeComponent={HomePageTwo} />
-                                    )}
-                                />
                                 <Route
                                     path="/"
                                     render={(props) => (
