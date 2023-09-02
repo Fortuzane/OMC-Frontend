@@ -81,7 +81,7 @@ function HomePageOne() {
     return (
         <React.Fragment>
             <Helmet>
-                <title>{`Home Page One — ${theme.name}`}</title>
+                <title>{`Online Marketing Complex`}</title>
             </Helmet>
 
             {useMemo(() => <BlockSlideShow withDepartments />, [])}

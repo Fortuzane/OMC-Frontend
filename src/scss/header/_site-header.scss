@@ -21,7 +21,7 @@
 }
 .site-header__logo {
     flex-shrink: 0;
-    width: 255px;
+    // width: 255px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +67,7 @@
 
 @media (min-width: breakpoint(lg-start)) and (max-width: breakpoint(lg-end)) {
     .site-header__logo {
-        width: 210px;
+        // width: 210px;
         justify-content: flex-start;
 
         @include direction {
