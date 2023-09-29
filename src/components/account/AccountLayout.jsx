@@ -22,6 +22,7 @@ import AccountPageOrderDetails from './AccountPageOrderDetails';
 import AccountPageOrders from './AccountPageOrders';
 import AccountPagePassword from './AccountPagePassword';
 import AccountPageProfile from './AccountPageProfile';
+import AccountPagePoints from './AccountPagePoints';
 
 export default function AccountLayout(props) {
     const { match, location } = props;
@@ -36,6 +37,7 @@ export default function AccountLayout(props) {
         { title: 'Edit Profile', url: 'profile' },
         { title: 'Order History', url: 'orders' },
         { title: 'Order Details', url: 'orders/5' },
+        {title: 'Points', url: 'points'},
         { title: 'Addresses', url: 'addresses' },
         { title: 'Edit Address', url: 'addresses/5' },
         { title: 'Password', url: 'password' },
@@ -74,6 +76,7 @@ export default function AccountLayout(props) {
                                 <Route exact path={`${match.path}/profile`} component={AccountPageProfile} />
                                 <Route exact path={`${match.path}/orders`} component={AccountPageOrders} />
                                 <Route exact path={`${match.path}/orders/:orderId`} component={AccountPageOrderDetails} />
+                                <Route exact path={`${match.path}/points`} component={AccountPagePoints}/>
                                 <Route exact path={`${match.path}/addresses`} component={AccountPageAddresses} />
                                 <Route exact path={`${match.path}/addresses/:addressId`} component={AccountPageEditAddress} />
                                 <Route exact path={`${match.path}/password`} component={AccountPagePassword} />

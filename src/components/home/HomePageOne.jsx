@@ -31,9 +31,6 @@ function HomePageOne() {
     const featuredProducts = useProductTabs(
         useMemo(() => [
             { id: 1, name: 'All', categorySlug: undefined },
-            { id: 2, name: 'Power Tools', categorySlug: 'power-tools' },
-            { id: 3, name: 'Hand Tools', categorySlug: 'hand-tools' },
-            { id: 4, name: 'Plumbing', categorySlug: 'plumbing' },
         ], []),
         (tab) => shopApi.getPopularProducts({ limit: 8, category: tab.categorySlug }),
     );
@@ -51,9 +48,6 @@ function HomePageOne() {
     const latestProducts = useProductTabs(
         useMemo(() => [
             { id: 1, name: 'All', categorySlug: undefined },
-            { id: 2, name: 'Power Tools', categorySlug: 'power-tools' },
-            { id: 3, name: 'Hand Tools', categorySlug: 'hand-tools' },
-            { id: 4, name: 'Plumbing', categorySlug: 'plumbing' },
         ], []),
         (tab) => shopApi.getLatestProducts({ limit: 8, category: tab.categorySlug }),
     );
@@ -90,16 +84,26 @@ function HomePageOne() {
 
             {useMemo(() => (
                 <BlockProductsCarousel
-                    title="Featured Products"
+                    title="Special Offers"
                     layout="grid-5"
                     products={featuredProducts.data}
                     loading={featuredProducts.isLoading}
-                    groups={featuredProducts.tabs}
                     onGroupClick={featuredProducts.handleTabChange}
                 />
             ), [featuredProducts])}
 
             {useMemo(() => <BlockBanner />, [])}
+
+            {useMemo(() => (
+                <BlockProductsCarousel
+                    title="New Arrivals"
+                    layout="horizontal"
+                    rows={2}
+                    products={latestProducts.data}
+                    loading={latestProducts.isLoading}
+                    onGroupClick={latestProducts.handleTabChange}
+                />
+            ), [latestProducts])}
 
             {useMemo(() => (
                 <BlockProducts
@@ -118,23 +122,7 @@ function HomePageOne() {
                 />
             ), [])}
 
-            {useMemo(() => (
-                <BlockProductsCarousel
-                    title="New Arrivals"
-                    layout="horizontal"
-                    rows={2}
-                    products={latestProducts.data}
-                    loading={latestProducts.isLoading}
-                    groups={latestProducts.tabs}
-                    onGroupClick={latestProducts.handleTabChange}
-                />
-            ), [latestProducts])}
 
-            {useMemo(() => <BlockPosts title="Latest News" layout="list-sm" posts={posts} />, [])}
-
-            {useMemo(() => <BlockBrands />, [])}
-
-            {useMemo(() => <BlockProductColumns columns={columns} />, [columns])}
         </React.Fragment>
     );
 }

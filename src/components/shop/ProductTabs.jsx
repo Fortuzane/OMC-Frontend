@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import ProductTabDescription from './ProductTabDescription';
 import ProductTabSpecification from './ProductTabSpecification';
 import ProductTabReviews from './ProductTabReviews';
+import ProductTabQA from './ProductTabQA';
 
 class ProductTabs extends Component {
     constructor(props) {
@@ -34,6 +35,7 @@ class ProductTabs extends Component {
             { key: 'description', title: 'Description', content: <ProductTabDescription /> },
             { key: 'specification', title: 'Specification', content: <ProductTabSpecification /> },
             { key: 'reviews', title: 'Reviews', content: <ProductTabReviews /> },
+            {key: 'qa', title: 'Q & A', content: <ProductTabQA/>},
         ];
 
         const tabsButtons = tabs.map((tab) => {
