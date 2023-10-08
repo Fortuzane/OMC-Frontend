@@ -11,6 +11,12 @@
     margin-right: 5px;
 }
 
+@media (max-width: 576px) {
+    .account-points__view {
+        margin-right: -15px;
+    }
+}
+
 .account-points__available-point-card {
     display: grid;
     justify-items: center;

@@ -54,7 +54,7 @@ function ProductCard(props) {
         image = (
             <div className="product-card__image product-image">
                 <Link to={url.product(product)} className="product-image__body">
-                    <img className="product-image__img" src={product.images[0]} alt="" />
+                    <img className="product-image__img" src={product.images[0]} alt=""/>
                 </Link>
             </div>
         );

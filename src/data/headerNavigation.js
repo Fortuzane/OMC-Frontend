@@ -86,7 +86,7 @@ export default [
                     title: 'Shop Grid',
                     url: '/shop/category-grid-3-columns-sidebar',
                     submenu: [
-                        { title: '3 Columns Sidebar', url: '/shop/category-grid-3-columns-sidebar' },
+                        {title: '4 Columns Sidebar', url: '/shop/category-grid-3-columns-sidebar'},
                         { title: '4 Columns Full', url: '/shop/category-grid-4-columns-full' },
                         { title: '5 Columns Full', url: '/shop/category-grid-5-columns-full' },
                     ],

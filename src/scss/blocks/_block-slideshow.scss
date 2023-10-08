@@ -206,6 +206,7 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
         .block-slideshow__slide-button .btn {
             @include btn-sm();
         }
+
     }
 }
 
@@ -214,6 +215,9 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
     .block-slideshow__body,
     .block-slideshow__slide {
         height: 395px;
+    }
+    .block-slideshow__slide-image--desktop {
+        display: none;
     }
     .block-slideshow__slide-image--mobile {
         background-position: top center;

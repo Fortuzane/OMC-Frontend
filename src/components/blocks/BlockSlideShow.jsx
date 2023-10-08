@@ -13,12 +13,15 @@ import languages from '../../i18n';
 import StroykaSlick from '../shared/StroykaSlick';
 
 const slickSettings = {
-    dots: true,
+    dots: window.screen.width > 770,
     arrows: false,
     infinite: true,
     speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
+    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 2000
 };
 
 class BlockSlideShow extends Component {
@@ -149,6 +152,7 @@ class BlockSlideShow extends Component {
                         className="block-slideshow__slide-image block-slideshow__slide-image--mobile"
                         style={{
                             backgroundImage: `url(${slide.image_mobile[direction]})`,
+                            'height': '200px',
                         }}
                     />
                     <div className="block-slideshow__slide-content">
@@ -171,7 +175,7 @@ class BlockSlideShow extends Component {
         return (
             <div className={blockClasses}>
                 <div className="container" style={{ maxWidth:'90%' }}>
-                    <div className="row" style={{ 'flex-wrap': 'nowrap' }}>
+                    <div className="row" style={{flexWrap: 'nowrap'}}>
                         {withDepartments && (
                             <div className="col-3 d-lg-block d-none block_none" ref={this.setDepartmentsAreaRef} />
                         )}
