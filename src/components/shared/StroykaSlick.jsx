@@ -336,6 +336,7 @@ class StroykaSlickBase extends Component {
                 </div>
             );
         });
+        console.log('width -----', window.screen.width);
 
         return (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions

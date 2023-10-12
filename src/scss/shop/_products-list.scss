@@ -15,7 +15,7 @@
         @if ($columns == 1) {
             width: 100%;
         } @else {
-            width: calc(#{math.div(100%, $columns)} - #{$margin-horizontal*2});
+            width: calc(#{math.div(100%, 4)} - #{$margin-horizontal*2});
         }
         margin: $margin-vertical $margin-horizontal;
     }

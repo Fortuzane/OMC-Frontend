@@ -9,3 +9,50 @@
 //.container {
 //    max-width: 90%;
 //}
+
+.block_slide {
+    max-width: 82%;
+}
+
+.block_none {
+    max-width: 18%;
+}
+
+@media (max-width: 1600px) {
+    .block_slide {
+        max-width: 80%;
+    }
+
+    .block_none {
+        max-width: 20%;
+    }
+
+    .departments__body {
+        width: 85%;
+    }
+}
+
+@media (max-width: breakpoint(md-end)) {
+    .block_slide {
+        max-width: 100%;
+    }
+
+    .block_none {
+        display: none;
+    }
+
+    .departments__body {
+        display: none;
+    }
+}
+
+
+@media (max-width: breakpoint(sm-end)) {
+    .slick-track {
+        display: flex !important;
+    }
+
+    .block-slideshow {
+        height: 200px;
+    }
+}

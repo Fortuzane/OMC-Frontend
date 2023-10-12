@@ -238,42 +238,6 @@ class Product extends Component {
                                             )}
                                         />
                                     </div>
-                                    <div className="product__actions-item product__actions-item--wishlist">
-                                        <AsyncAction
-                                            action={() => wishlistAddItem(product)}
-                                            render={({ run, loading }) => (
-                                                <button
-                                                    type="button"
-                                                    data-toggle="tooltip"
-                                                    title="Wishlist"
-                                                    onClick={run}
-                                                    className={classNames('btn btn-secondary btn-svg-icon btn-lg', {
-                                                        'btn-loading': loading,
-                                                    })}
-                                                >
-                                                    <Wishlist16Svg />
-                                                </button>
-                                            )}
-                                        />
-                                    </div>
-                                    <div className="product__actions-item product__actions-item--compare">
-                                        <AsyncAction
-                                            action={() => compareAddItem(product)}
-                                            render={({ run, loading }) => (
-                                                <button
-                                                    type="button"
-                                                    data-toggle="tooltip"
-                                                    title="Compare"
-                                                    onClick={run}
-                                                    className={classNames('btn btn-secondary btn-svg-icon btn-lg', {
-                                                        'btn-loading': loading,
-                                                    })}
-                                                >
-                                                    <Compare16Svg />
-                                                </button>
-                                            )}
-                                        />
-                                    </div>
                                 </div>
                             </div>
                         </form>

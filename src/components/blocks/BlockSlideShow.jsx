@@ -13,12 +13,15 @@ import languages from '../../i18n';
 import StroykaSlick from '../shared/StroykaSlick';
 
 const slickSettings = {
-    dots: true,
+    dots: window.screen.width > 770,
     arrows: false,
     infinite: true,
     speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
+    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 2000
 };
 
 class BlockSlideShow extends Component {
@@ -129,6 +132,7 @@ class BlockSlideShow extends Component {
                 'col-lg-12': !withDepartments,
                 'col-lg-9': withDepartments,
             },
+            'block_slide'
         );
 
         const slides = this.slides.map((slide, index) => {
@@ -139,13 +143,16 @@ class BlockSlideShow extends Component {
                     <div
                         className="block-slideshow__slide-image block-slideshow__slide-image--desktop"
                         style={{
-                            backgroundImage: `url(${image})`,
+                            'backgroundImage': `url(${image})`,
+                            'background-position-y': 'center',
+                            'background-size': 'cover',
                         }}
                     />
                     <div
                         className="block-slideshow__slide-image block-slideshow__slide-image--mobile"
                         style={{
                             backgroundImage: `url(${slide.image_mobile[direction]})`,
+                            'height': '200px',
                         }}
                     />
                     <div className="block-slideshow__slide-content">
@@ -167,13 +174,13 @@ class BlockSlideShow extends Component {
 
         return (
             <div className={blockClasses}>
-                <div className="container">
-                    <div className="row">
+                <div className="container" style={{ maxWidth:'90%' }}>
+                    <div className="row" style={{flexWrap: 'nowrap'}}>
                         {withDepartments && (
-                            <div className="col-3 d-lg-block d-none" ref={this.setDepartmentsAreaRef} />
+                            <div className="col-3 d-lg-block d-none block_none" ref={this.setDepartmentsAreaRef} />
                         )}
 
-                        <div className={layoutClasses}>
+                        <div className={layoutClasses} >
                             <div className="block-slideshow__body">
                                 <StroykaSlick {...slickSettings}>
                                     {slides}

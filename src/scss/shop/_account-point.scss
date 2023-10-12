@@ -1,0 +1,80 @@
+/*
+// .account-points
+*/
+@import '../variables';
+@import '../functions';
+@import '../mixins/direction';
+
+
+.account-points__view {
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+@media (max-width: 576px) {
+    .account-points__view {
+        margin-right: -15px;
+    }
+}
+
+.account-points__available-point-card {
+    display: grid;
+    justify-items: center;
+}
+
+.account-points__available-point-card h4 {
+    margin: 10px 0px 0px 0px;
+}
+
+.account-points__available-point-card p {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.account-points__available-point-card__value {
+    margin-bottom: 10px;
+}
+
+.account-points__available-point-card__value h6 {
+    padding-right: 5px;
+    margin: 0px;
+}
+
+.account-points table {
+    margin: auto;
+    border-top: hidden;
+}
+
+.account-points__request {
+    margin-right: 5px;
+    margin-left: -15px;
+    margin-top: 80px;
+}
+
+.account-points__request h4 {
+    margin: 10px;
+}
+
+.account-points__request td {
+    width: 33.3%;
+}
+
+.account-points__request input {
+    margin-bottom: 5px;
+}
+
+.account-points__request span {
+    font-weight: 200;
+    font-size: 12px;
+}
+
+.account-points__request-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.account-points__request-errorMsg {
+    font-weight: 300;
+    font-size: 14px;
+}

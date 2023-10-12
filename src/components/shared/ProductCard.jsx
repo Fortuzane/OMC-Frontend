@@ -12,7 +12,7 @@ import AsyncAction from './AsyncAction';
 import Currency from './Currency';
 import Rating from './Rating';
 import { cartAddItem } from '../../store/cart';
-import { Compare16Svg, Quickview16Svg, Wishlist16Svg } from '../../svg';
+import {Quickview16Svg} from '../../svg';
 import { compareAddItem } from '../../store/compare';
 import { quickviewOpen } from '../../store/quickview';
 import { url } from '../../services/utils';
@@ -24,8 +24,6 @@ function ProductCard(props) {
         layout,
         quickviewOpen,
         cartAddItem,
-        wishlistAddItem,
-        compareAddItem,
     } = props;
     const containerClasses = classNames('product-card', {
         'product-card--layout--grid product-card--size--sm': layout === 'grid-sm',
@@ -56,7 +54,7 @@ function ProductCard(props) {
         image = (
             <div className="product-card__image product-image">
                 <Link to={url.product(product)} className="product-image__body">
-                    <img className="product-image__img" src={product.images[0]} alt="" />
+                    <img className="product-image__img" src={product.images[0]} alt=""/>
                 </Link>
             </div>
         );
@@ -148,34 +146,7 @@ function ProductCard(props) {
                             </React.Fragment>
                         )}
                     />
-                    <AsyncAction
-                        action={() => wishlistAddItem(product)}
-                        render={({ run, loading }) => (
-                            <button
-                                type="button"
-                                onClick={run}
-                                className={classNames('btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist', {
-                                    'btn-loading': loading,
-                                })}
-                            >
-                                <Wishlist16Svg />
-                            </button>
-                        )}
-                    />
-                    <AsyncAction
-                        action={() => compareAddItem(product)}
-                        render={({ run, loading }) => (
-                            <button
-                                type="button"
-                                onClick={run}
-                                className={classNames('btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare', {
-                                    'btn-loading': loading,
-                                })}
-                            >
-                                <Compare16Svg />
-                            </button>
-                        )}
-                    />
+
                 </div>
             </div>
         </div>

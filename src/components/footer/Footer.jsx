@@ -15,20 +15,13 @@ export default function Footer() {
         { title: 'About Us', url: '' },
         { title: 'Delivery Information', url: '' },
         { title: 'Privacy Policy', url: '' },
-        { title: 'Brands', url: '' },
         { title: 'Contact Us', url: '' },
-        { title: 'Returns', url: '' },
-        { title: 'Site Map', url: '' },
+        {title: 'Return Policy', url: ''},
     ];
 
     const accountLinks = [
-        { title: 'Store Location', url: '' },
         { title: 'Order History', url: '' },
-        { title: 'Wish List', url: '' },
-        { title: 'Newsletter', url: '' },
         { title: 'Specials', url: '' },
-        { title: 'Gift Certificates', url: '' },
-        { title: 'Affiliate', url: '' },
     ];
 
     return (
@@ -53,11 +46,7 @@ export default function Footer() {
 
                 <div className="site-footer__bottom">
                     <div className="site-footer__copyright">
-                        Powered by
-                        {' '}
-                        <a href="https://reactjs.org/" rel="noopener noreferrer" target="_blank">React</a>
-                        {' '}
-                        — Design by
+                        Design by
                         {' '}
                         <a href={theme.author.profile_url} target="_blank" rel="noopener noreferrer">
                             {theme.author.name}

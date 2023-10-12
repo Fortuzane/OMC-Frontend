@@ -224,7 +224,7 @@ ProductsView.propTypes = {
      * products list layout (default: 'grid')
      * one of ['grid-3-sidebar', 'grid-4-full', 'grid-5-full']
      */
-    grid: PropTypes.oneOf(['grid-3-sidebar', 'grid-4-full', 'grid-5-full']),
+    grid: PropTypes.oneOf(['grid-4-sidebar', 'grid-4-full', 'grid-5-full']),
     /**
      * indicates when sidebar should be off canvas
      */
