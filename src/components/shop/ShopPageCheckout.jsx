@@ -54,7 +54,11 @@ class ShopPageCheckout extends Component {
                         <th>Subtotal</th>
                         <td><Currency value={cart.subtotal} /></td>
                     </tr>
-                    {extraLines}
+                    {/*{extraLines}*/}
+                    <tr>
+                        <th>Shipping</th>
+                        <td><Currency value='25'/></td>
+                    </tr>
                 </tbody>
             </React.Fragment>
         );
@@ -163,13 +167,13 @@ class ShopPageCheckout extends Component {
                 <div className="checkout block">
                     <div className="container">
                         <div className="row">
-                            <div className="col-12 mb-3">
-                                <div className="alert alert-primary alert-lg">
-                                    Returning customer?
-                                    {' '}
-                                    <Link to="/account/login">Click here to login</Link>
-                                </div>
-                            </div>
+                            {/*<div className="col-12 mb-3">*/}
+                            {/*    <div className="alert alert-primary alert-lg">*/}
+                            {/*        Returning customer?*/}
+                            {/*        {' '}*/}
+                            {/*        <Link to="/account/login">Click here to login</Link>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
 
                             <div className="col-12 col-lg-6 col-xl-7">
                                 <div className="card mb-lg-0">
@@ -209,19 +213,19 @@ class ShopPageCheckout extends Component {
                                                 placeholder="Company Name"
                                             />
                                         </div>
-                                        <div className="form-group">
-                                            <label htmlFor="checkout-country">Country</label>
-                                            <select id="checkout-country" className="form-control">
-                                                <option>Select a country...</option>
-                                                <option>United States</option>
-                                                <option>Russia</option>
-                                                <option>Italy</option>
-                                                <option>France</option>
-                                                <option>Ukraine</option>
-                                                <option>Germany</option>
-                                                <option>Australia</option>
-                                            </select>
-                                        </div>
+                                        {/*<div className="form-group">*/}
+                                        {/*    <label htmlFor="checkout-country">Country</label>*/}
+                                        {/*    <select id="checkout-country" className="form-control">*/}
+                                        {/*        <option>Select a country...</option>*/}
+                                        {/*        <option>United States</option>*/}
+                                        {/*        <option>Russia</option>*/}
+                                        {/*        <option>Italy</option>*/}
+                                        {/*        <option>France</option>*/}
+                                        {/*        <option>Ukraine</option>*/}
+                                        {/*        <option>Germany</option>*/}
+                                        {/*        <option>Australia</option>*/}
+                                        {/*    </select>*/}
+                                        {/*</div>*/}
                                         <div className="form-group">
                                             <label htmlFor="checkout-street-address">Street Address</label>
                                             <input
@@ -243,12 +247,12 @@ class ShopPageCheckout extends Component {
                                             <label htmlFor="checkout-city">Town / City</label>
                                             <input type="text" className="form-control" id="checkout-city" />
                                         </div>
+                                        {/*<div className="form-group">*/}
+                                        {/*    <label htmlFor="checkout-state">State / County</label>*/}
+                                        {/*    <input type="text" className="form-control" id="checkout-state" />*/}
+                                        {/*</div>*/}
                                         <div className="form-group">
-                                            <label htmlFor="checkout-state">State / County</label>
-                                            <input type="text" className="form-control" id="checkout-state" />
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="checkout-postcode">Postcode / ZIP</label>
+                                            <label htmlFor="checkout-postcode">Postcode</label>
                                             <input type="text" className="form-control" id="checkout-postcode" />
                                         </div>
 
@@ -268,20 +272,20 @@ class ShopPageCheckout extends Component {
                                             </div>
                                         </div>
 
-                                        <div className="form-group">
-                                            <div className="form-check">
-                                                <span className="form-check-input input-check">
-                                                    <span className="input-check__body">
-                                                        <input className="input-check__input" type="checkbox" id="checkout-create-account" />
-                                                        <span className="input-check__box" />
-                                                        <Check9x7Svg className="input-check__icon" />
-                                                    </span>
-                                                </span>
-                                                <label className="form-check-label" htmlFor="checkout-create-account">
-                                                    Create an account?
-                                                </label>
-                                            </div>
-                                        </div>
+                                        {/*<div className="form-group">*/}
+                                        {/*    <div className="form-check">*/}
+                                        {/*        <span className="form-check-input input-check">*/}
+                                        {/*            <span className="input-check__body">*/}
+                                        {/*                <input className="input-check__input" type="checkbox" id="checkout-create-account" />*/}
+                                        {/*                <span className="input-check__box" />*/}
+                                        {/*                <Check9x7Svg className="input-check__icon" />*/}
+                                        {/*            </span>*/}
+                                        {/*        </span>*/}
+                                        {/*        <label className="form-check-label" htmlFor="checkout-create-account">*/}
+                                        {/*            Create an account?*/}
+                                        {/*        </label>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
                                     </div>
                                     <div className="card-divider" />
                                     <div className="card-body">

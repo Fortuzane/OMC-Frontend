@@ -163,11 +163,11 @@ const initialState = {
             title: 'Shipping',
             price: 25,
         },
-        {
-            type: 'tax',
-            title: 'Tax',
-            price: 0,
-        },
+        // {
+        //     type: 'tax',
+        //     title: 'Tax',
+        //     price: 0,
+        // },
     ],
     total: 0,
 };

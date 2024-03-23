@@ -36,10 +36,10 @@ export default function AccountLayout(props) {
         { title: 'Dashboard', url: 'dashboard' },
         { title: 'Edit Profile', url: 'profile' },
         { title: 'Order History', url: 'orders' },
-        { title: 'Order Details', url: 'orders/5' },
+        // { title: 'Order Details', url: 'orders/5' },
         {title: 'Points', url: 'points'},
         { title: 'Addresses', url: 'addresses' },
-        { title: 'Edit Address', url: 'addresses/5' },
+        // { title: 'Edit Address', url: 'addresses/5' },
         { title: 'Password', url: 'password' },
         { title: 'Logout', url: 'login' },
     ].map((link) => {

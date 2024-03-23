@@ -8,8 +8,8 @@ export default {
     },
     contacts: {
         //TODO: add address details
-        address: '715 Fake Street, New York 10021 USA',
-        email: 'stroyka@example.com',
-        phone: '(800) 060-0730',
+        address: 'No 425/2, Parakum Place, Kaduruwela, Polonnaruwa',
+        email: 'omarketingcomplex@gmail.com',
+        phone: '077 833 7143',
     },
 };

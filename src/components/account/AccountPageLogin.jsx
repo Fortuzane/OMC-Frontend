@@ -35,12 +35,12 @@ export default function AccountPageLogin() {
                                     <h3 className="card-title">Login</h3>
                                     <form>
                                         <div className="form-group">
-                                            <label htmlFor="login-email">Email address</label>
+                                            <label htmlFor="login-email">Mobile Number</label>
                                             <input
                                                 id="login-email"
                                                 type="email"
                                                 className="form-control"
-                                                placeholder="Enter email"
+                                                placeholder="Enter Mobile Number"
                                             />
                                         </div>
                                         <div className="form-group">
@@ -55,24 +55,24 @@ export default function AccountPageLogin() {
                                                 <Link to="/">Forgotten Password</Link>
                                             </small>
                                         </div>
-                                        <div className="form-group">
-                                            <div className="form-check">
-                                                <span className="form-check-input input-check">
-                                                    <span className="input-check__body">
-                                                        <input
-                                                            id="login-remember"
-                                                            type="checkbox"
-                                                            className="input-check__input"
-                                                        />
-                                                        <span className="input-check__box" />
-                                                        <Check9x7Svg className="input-check__icon" />
-                                                    </span>
-                                                </span>
-                                                <label className="form-check-label" htmlFor="login-remember">
-                                                    Remember Me
-                                                </label>
-                                            </div>
-                                        </div>
+                                        {/*<div className="form-group">*/}
+                                        {/*    <div className="form-check">*/}
+                                        {/*        <span className="form-check-input input-check">*/}
+                                        {/*            <span className="input-check__body">*/}
+                                        {/*                <input*/}
+                                        {/*                    id="login-remember"*/}
+                                        {/*                    type="checkbox"*/}
+                                        {/*                    className="input-check__input"*/}
+                                        {/*                />*/}
+                                        {/*                <span className="input-check__box" />*/}
+                                        {/*                <Check9x7Svg className="input-check__icon" />*/}
+                                        {/*            </span>*/}
+                                        {/*        </span>*/}
+                                        {/*        <label className="form-check-label" htmlFor="login-remember">*/}
+                                        {/*            Remember Me*/}
+                                        {/*        </label>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
                                         <button type="submit" className="btn btn-primary mt-2 mt-md-3 mt-lg-4">
                                             Login
                                         </button>
@@ -86,12 +86,12 @@ export default function AccountPageLogin() {
                                     <h3 className="card-title">Register</h3>
                                     <form>
                                         <div className="form-group">
-                                            <label htmlFor="register-email">Email address</label>
+                                            <label htmlFor="register-email">Mobile Number</label>
                                             <input
                                                 id="register-email"
                                                 type="email"
                                                 className="form-control"
-                                                placeholder="Enter email"
+                                                placeholder="Enter Mobile Number"
                                             />
                                         </div>
                                         <div className="form-group">

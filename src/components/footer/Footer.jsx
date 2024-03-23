@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="container">
                 <div className="site-footer__widgets">
                     <div className="row">
-                        <div className="col-12 col-md-6 col-lg-4">
+                        <div className="col-12 col-md-6 col-lg-5">
                             <FooterContacts />
                         </div>
                         <div className="col-6 col-md-3 col-lg-2">
@@ -38,7 +38,7 @@ export default function Footer() {
                         <div className="col-6 col-md-3 col-lg-2">
                             <FooterLinks title="My Account" items={accountLinks} />
                         </div>
-                        <div className="col-12 col-md-12 col-lg-4">
+                        <div className="col-12 col-md-12 col-lg-3">
                             <FooterNewsletter />
                         </div>
                     </div>
