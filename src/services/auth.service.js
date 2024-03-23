@@ -85,3 +85,15 @@ export const getAllCartByUserId = async (id) => {
         throw apiError;
     }
 }
+
+export const createCart = async (cart) => {
+    try {
+        const apiResponse = await AxiosService.post(
+            '/user-cart', cart
+        )
+        return apiResponse.data;
+    } catch (apiError) {
+        // showNotification("error", getNotificationDescription(apiError));
+        throw apiError;
+    }
+}
