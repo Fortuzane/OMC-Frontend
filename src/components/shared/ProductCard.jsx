@@ -4,7 +4,6 @@ import React from 'react';
 // third-party
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // application
@@ -14,9 +13,12 @@ import Rating from './Rating';
 import { cartAddItem } from '../../store/cart';
 import {Quickview16Svg} from '../../svg';
 import { compareAddItem } from '../../store/compare';
-import { quickviewOpen } from '../../store/quickview';
+import {quickviewOpen, quickviewOpenSuccess} from '../../store/quickview';
 import { url } from '../../services/utils';
 import { wishlistAddItem } from '../../store/wishlist';
+import shopApi from "../../api/shop";
+import {useAppDispatch, useAppSelector} from "../../store";
+import {quickViewAction} from "../../store/quick-view-slice";
 
 function ProductCard(props) {
     const {
@@ -32,6 +34,29 @@ function ProductCard(props) {
         'product-card--layout--list': layout === 'list',
         'product-card--layout--horizontal': layout === 'horizontal',
     });
+
+    const quickView = (productSlug) => {
+        return (dispatch) => {
+            return new Promise((resolve) => {
+                let canceled = false;
+                // sending request to server, timeout is used as a stub
+                const timer = setTimeout(() => {
+                    shopApi.getProductBySlug(productSlug).then((product) => {
+                        if (canceled) {
+                            return;
+                        }
+
+                        if (product) {
+                            dispatch(quickViewAction.setProduct(product));
+                            dispatch(quickViewAction.setOpen(true));
+                        }
+
+                        resolve();
+                    });
+                }, 350);
+            });
+        };
+    }
 
     let badges = [];
     let image;
@@ -89,7 +114,7 @@ function ProductCard(props) {
     return (
         <div className={containerClasses}>
             <AsyncAction
-                action={() => quickviewOpen(product.slug)}
+                action={() => quickView(product.slug)}
                 render={({ run, loading }) => (
                     <button
                         type="button"
@@ -171,10 +196,7 @@ const mapDispatchToProps = {
     cartAddItem,
     wishlistAddItem,
     compareAddItem,
-    quickviewOpen,
+    // quickviewOpen,
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(ProductCard);
+export default ProductCard;

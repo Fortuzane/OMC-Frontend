@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 // third-party
 import classNames from 'classnames';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // application
@@ -75,13 +74,14 @@ class MobileHeader extends Component {
                                 <Indicator
                                     className="indicator--mobile d-sm-flex d-none"
                                     url="/shop/wishlist"
-                                    value={wishlist.length}
+                                    // value={wishlist.length}
+
                                     icon={<Heart20Svg />}
                                 />
                                 <Indicator
                                     className="indicator--mobile"
                                     url="/shop/cart"
-                                    value={cart.quantity}
+                                    // value={cart.quantity}
                                     icon={<Cart20Svg />}
                                 />
                             </div>
@@ -102,7 +102,4 @@ const mapDispatchToProps = {
     openMobileMenu: mobileMenuOpen,
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(MobileHeader);
+export default MobileHeader;

@@ -18,7 +18,7 @@ export default combineReducers({
     currency: currencyReducer,
     locale: localeReducer,
     mobileMenu: mobileMenuReducer,
-    quickview: quickviewReducer,
+    // quickview: quickviewReducer,
     sidebar: sidebarReducer,
     wishlist: wishlistReducer,
 });

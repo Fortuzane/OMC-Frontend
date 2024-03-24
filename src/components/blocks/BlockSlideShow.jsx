@@ -4,12 +4,10 @@ import React, { Component } from 'react';
 // third-party
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // application
 import departmentsAria from '../../services/departmentsArea';
-import languages from '../../i18n';
 import StroykaSlick from '../shared/StroykaSlick';
 
 const slickSettings = {
@@ -115,8 +113,7 @@ class BlockSlideShow extends Component {
     };
 
     render() {
-        const { locale, withDepartments } = this.props;
-        const { direction } = languages[locale];
+        const {  withDepartments } = this.props;
 
         const blockClasses = classNames(
             'block-slideshow block',
@@ -136,7 +133,7 @@ class BlockSlideShow extends Component {
         );
 
         const slides = this.slides.map((slide, index) => {
-            const image = (withDepartments ? slide.image_classic : slide.image_full)[direction];
+            const image = (withDepartments ? slide.image_classic : slide.image_full)['ltr'];
 
             return (
                 <div key={index} className="block-slideshow__slide">
@@ -151,7 +148,7 @@ class BlockSlideShow extends Component {
                     <div
                         className="block-slideshow__slide-image block-slideshow__slide-image--mobile"
                         style={{
-                            backgroundImage: `url(${slide.image_mobile[direction]})`,
+                            backgroundImage: `url(${slide.image_mobile['ltr']})`,
                             'height': '200px',
                         }}
                     />
@@ -196,16 +193,11 @@ class BlockSlideShow extends Component {
 
 BlockSlideShow.propTypes = {
     withDepartments: PropTypes.bool,
-    /** current locale */
-    locale: PropTypes.string,
 };
 
 BlockSlideShow.defaultProps = {
     withDepartments: false,
 };
 
-const mapStateToProps = (state) => ({
-    locale: state.locale,
-});
 
-export default connect(mapStateToProps)(BlockSlideShow);
+export default BlockSlideShow;

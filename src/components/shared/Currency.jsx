@@ -3,7 +3,6 @@ import React from "react";
 
 // third-party
 import PropTypes from "prop-types";
-import {connect} from "react-redux";
 
 function Currency(props) {
     const {value} = props;
@@ -51,4 +50,4 @@ const mapStateToProps = (state) => ({
     currentCurrency: state.currency,
 });
 
-export default connect(mapStateToProps)(Currency);
+export default Currency;

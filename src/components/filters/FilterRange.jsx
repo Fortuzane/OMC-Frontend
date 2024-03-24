@@ -9,7 +9,6 @@ import React, {
 // third-party
 import InputRange from 'react-input-range';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 // application
 import Currency from '../shared/Currency';
@@ -30,7 +29,7 @@ function FilterRange(props) {
         onChangeValue,
         locale,
     } = props;
-    const { direction } = languages[locale];
+    const { direction } = 'ltr';
     const [propsFrom, propsTo] = value || [];
     const [timer, setTimer] = useState(null);
     const [state, setState] = useState([propsFrom, propsTo]);
@@ -119,11 +118,11 @@ FilterRange.propTypes = {
     /**
      * Current locale.
      */
-    locale: PropTypes.string,
+    // locale: PropTypes.string,
 };
 
-const mapStateToProps = (state) => ({
-    locale: state.locale,
-});
+// const mapStateToProps = (state) => ({
+//     locale: state.locale,
+// });
 
-export default connect(mapStateToProps)(FilterRange);
+export default FilterRange;

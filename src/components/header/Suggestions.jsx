@@ -3,7 +3,6 @@ import React from 'react';
 
 // third-party
 import classNames from 'classnames';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // application
@@ -85,7 +84,4 @@ const mapDispatchToProps = {
     cartAddItem,
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Suggestions);
+export default Suggestions;

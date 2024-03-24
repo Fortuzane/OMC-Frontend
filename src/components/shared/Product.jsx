@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 // third-party
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // application
@@ -284,7 +283,4 @@ const mapDispatchToProps = {
     compareAddItem,
 };
 
-export default connect(
-    () => ({}),
-    mapDispatchToProps,
-)(Product);
+export default Product;

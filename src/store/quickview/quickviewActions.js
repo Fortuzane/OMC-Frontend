@@ -16,32 +16,32 @@ export function quickviewClose() {
     };
 }
 
-export function quickviewOpen(productSlug) {
-    return (dispatch) => {
-        cancelPreviousRequest();
-
-        return new Promise((resolve) => {
-            let canceled = false;
-            // sending request to server, timeout is used as a stub
-            const timer = setTimeout(() => {
-                shopApi.getProductBySlug(productSlug).then((product) => {
-                    if (canceled) {
-                        return;
-                    }
-
-                    if (product) {
-                        dispatch(quickviewOpenSuccess(product));
-                    }
-
-                    resolve();
-                });
-            }, 350);
-
-            cancelPreviousRequest = () => {
-                canceled = true;
-                clearTimeout(timer);
-                resolve();
-            };
-        });
-    };
-}
+// export function quickviewOpen(productSlug) {
+//     return (dispatch) => {
+//         cancelPreviousRequest();
+//
+//         return new Promise((resolve) => {
+//             let canceled = false;
+//             // sending request to server, timeout is used as a stub
+//             const timer = setTimeout(() => {
+//                 shopApi.getProductBySlug(productSlug).then((product) => {
+//                     if (canceled) {
+//                         return;
+//                     }
+//
+//                     if (product) {
+//                         dispatch(quickviewOpenSuccess(product));
+//                     }
+//
+//                     resolve();
+//                 });
+//             }, 350);
+//
+//             cancelPreviousRequest = () => {
+//                 canceled = true;
+//                 clearTimeout(timer);
+//                 resolve();
+//             };
+//         });
+//     };
+// }

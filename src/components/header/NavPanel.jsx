@@ -3,7 +3,6 @@ import React from 'react';
 
 // third-party
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // application
@@ -56,7 +55,6 @@ function NavPanel(props) {
 
                         <CartIndicator />
 
-
                         <IndicatorAccount />
                     </div>
                 </div>
@@ -80,7 +78,4 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {};
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(NavPanel);
+export default NavPanel;

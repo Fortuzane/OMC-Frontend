@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 // third-party
 import classNames from 'classnames';
-import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
@@ -265,22 +264,22 @@ class ShopPageCart extends Component {
 
         let content;
 
-        if (cart.quantity) {
-            content = this.renderCart();
-        } else {
-            content = (
-                <div className="block block-empty">
-                    <div className="container">
-                        <div className="block-empty__body">
-                            <div className="block-empty__message">Your shopping cart is empty!</div>
-                            <div className="block-empty__actions">
-                                <Link to="/" className="btn btn-primary btn-sm">Continue</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        }
+        // if (cart.quantity) {
+        //     content = this.renderCart();
+        // } else {
+        //     content = (
+        //         <div className="block block-empty">
+        //             <div className="container">
+        //                 <div className="block-empty__body">
+        //                     <div className="block-empty__message">Your shopping cart is empty!</div>
+        //                     <div className="block-empty__actions">
+        //                         <Link to="/" className="btn btn-primary btn-sm">Continue</Link>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     );
+        // }
 
         return (
             <React.Fragment>
@@ -305,4 +304,4 @@ const mapDispatchToProps = {
     cartUpdateQuantities,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopPageCart);
+export default ShopPageCart;

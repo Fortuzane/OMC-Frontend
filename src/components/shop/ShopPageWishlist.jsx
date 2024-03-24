@@ -3,7 +3,6 @@ import React from 'react';
 
 // third-party
 import classNames from 'classnames';
-import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
@@ -21,27 +20,30 @@ import { wishlistRemoveItem } from '../../store/wishlist';
 import theme from '../../data/theme';
 
 function ShopPageWishlist(props) {
-    const { wishlist, cartAddItem, wishlistRemoveItem } = props;
+    const {
+        // wishlist,
+        cartAddItem, wishlistRemoveItem } = props;
     const breadcrumb = [
         { title: 'Home', url: '' },
         { title: 'Wishlist', url: '' },
     ];
 
     let content;
+    const wishlist = [];   //Remove
 
     if (wishlist.length) {
         const itemsList = wishlist.map((item) => {
             let image;
 
-            if (item.images.length > 0) {
-                image = (
-                    <div className="product-image">
-                        <Link to={url.product(item)} className="product-image__body">
-                            <img className="product-image__img" src={item.images[0]} alt="" />
-                        </Link>
-                    </div>
-                );
-            }
+            // if (item.images.length > 0) {
+            //     image = (
+            //         <div className="product-image">
+            //             <Link to={url.product(item)} className="product-image__body">
+            //                 <img className="product-image__img" src={item.images[0]} alt="" />
+            //             </Link>
+            //         </div>
+            //     );
+            // }
 
             const renderAddToCarButton = ({ run, loading }) => {
                 const classes = classNames('btn btn-primary btn-sm', {
@@ -149,7 +151,4 @@ const mapDispatchToProps = {
     wishlistRemoveItem,
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(ShopPageWishlist);
+export default ShopPageWishlist;

@@ -3,7 +3,6 @@ import React from 'react';
 
 // third-party
 import classNames from 'classnames';
-import { connect } from 'react-redux';
 
 // application
 import MobileLinks from './MobileLinks';
@@ -25,7 +24,7 @@ function MobileMenu(props) {
     } = props;
 
     const classes = classNames('mobilemenu', {
-        'mobilemenu--open': mobileMenuState.open,
+        // 'mobilemenu--open': mobileMenuState.open,
     });
 
     const handleItemClick = (item) => {
@@ -68,14 +67,5 @@ function MobileMenu(props) {
     );
 }
 
-const mapStateToProps = (state) => ({
-    mobileMenuState: state.mobileMenu,
-});
 
-const mapDispatchToProps = {
-    closeMobileMenu: mobileMenuClose,
-    changeLocale: localeChange,
-    changeCurrency: currencyChange,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MobileMenu);
+export default MobileMenu;

@@ -42,7 +42,7 @@ function Topbar() {
                     <div className="topbar__spring" />
                     <div className="topbar__item">
                         <Dropdown
-                            title={<FormattedMessage id="topbar.myAccount" defaultMessage="My Account" />}
+                            title={"My Account"}
                             items={accountLinks}
                         />
                     </div>

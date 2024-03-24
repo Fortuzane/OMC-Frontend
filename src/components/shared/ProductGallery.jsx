@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 // third-party
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // application
@@ -112,20 +111,20 @@ class ProductGallery extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { locale: prevLocale } = prevProps;
-        const { direction: prevDirection } = languages[prevLocale];
-        const { locale: currLocale } = this.props;
-        const { direction: currDirection } = languages[currLocale];
-
-        if (currDirection !== prevDirection) {
-            // this is necessary to reset the transition state,
-            // because when the direction changes, the afterChange event does not fire
-            setTimeout(() => {
-                this.setState(() => ({
-                    transition: false,
-                }));
-            }, 0);
-        }
+        // const { locale: prevLocale } = prevProps;
+        // const { direction: prevDirection } = languages[0];
+        // const { locale: currLocale } = this.props;
+        // const { direction: currDirection } = languages[0];
+        //
+        // if (currDirection !== prevDirection) {
+        //     // this is necessary to reset the transition state,
+        //     // because when the direction changes, the afterChange event does not fire
+        //     setTimeout(() => {
+        //         this.setState(() => ({
+        //             transition: false,
+        //         }));
+        //     }, 0);
+        // }
     }
 
     componentWillUnmount() {
@@ -137,13 +136,12 @@ class ProductGallery extends Component {
     }
 
     getIndexDependOnDir(index) {
-        const { images, locale } = this.props;
-        const { direction } = languages[locale];
+        const { images } = this.props;
 
         // we need to invert index id direction === 'rtl' due to react-slick bug
-        if (direction === 'rtl') {
-            return images.length - 1 - index;
-        }
+        // if (direction === 'rtl') {
+        //     return images.length - 1 - index;
+        // }
 
         return index;
     }
@@ -365,4 +363,4 @@ const mapStateToProps = (state) => ({
     locale: state.locale,
 });
 
-export default connect(mapStateToProps)(ProductGallery);
+export default ProductGallery;

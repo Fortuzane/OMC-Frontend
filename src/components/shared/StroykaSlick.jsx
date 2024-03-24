@@ -1,14 +1,11 @@
 // react
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 // third-party
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Slick from 'react-slick';
-import { connect } from 'react-redux';
 
-// application
-import languages from '../../i18n';
 
 class StroykaSlickBase extends Component {
     slickRef;
@@ -38,24 +35,19 @@ class StroykaSlickBase extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { locale: prevLocale, children: prevChildren } = prevProps;
-        const { direction: prevDirection } = languages[prevLocale];
-        const { locale: currLocale, children: currChildren } = this.props;
-        const { direction: currDirection } = languages[currLocale];
+        const {children: prevChildren} = prevProps;
+        const {children: currChildren} = this.props;
 
-        if (currDirection !== prevDirection && this.slickRef) {
-            this.slickRef.slickGoTo(this.getStartPosition(), true);
-        }
 
         if (currChildren !== prevChildren) {
             // If the slides have changed, we also need to change the active slides.
             setTimeout(() => {
-                this.setState({ activeSlides: this.getActiveSlides(this.getStartPosition()) });
+                this.setState({activeSlides: this.getActiveSlides(this.getStartPosition())});
             }, 0);
         }
 
-        const { responsive: prevResponsive } = prevProps;
-        const { responsive: currResponsive } = this.props;
+        const {responsive: prevResponsive} = prevProps;
+        const {responsive: currResponsive} = this.props;
 
         if (currResponsive !== prevResponsive) {
             this.unsubscribeMedias();
@@ -74,7 +66,7 @@ class StroykaSlickBase extends Component {
     }
 
     getSlidesCount() {
-        const { children } = this.props;
+        const {children} = this.props;
 
         return React.Children.toArray(children).length;
     }
@@ -83,15 +75,9 @@ class StroykaSlickBase extends Component {
     // with the incorrect position if the RTL property is true
     // this function returns the correct values
     getStartPosition() {
-        let { infinite } = this.props;
-        const { locale } = this.props;
-        const { direction } = languages[locale];
+        let {infinite} = this.props;
 
         infinite = infinite === true || infinite === undefined;
-
-        if (direction === 'ltr') {
-            return 0;
-        }
 
         const slidesToShow = this.getSlidesToShow();
         const slidesCount = this.getSlidesCount();
@@ -129,13 +115,13 @@ class StroykaSlickBase extends Component {
     }
 
     getSlidesToShow() {
-        const { responsive, slidesToShow } = this.props;
+        const {responsive, slidesToShow} = this.props;
 
         let result = slidesToShow || 1;
 
         if (responsive) {
             responsive.forEach((options) => {
-                const { matches } = matchMedia(`(max-width: ${options.breakpoint}px)`);
+                const {matches} = matchMedia(`(max-width: ${options.breakpoint}px)`);
 
                 if (matches && options.settings.slidesToShow) {
                     result = options.settings.slidesToShow;
@@ -146,11 +132,14 @@ class StroykaSlickBase extends Component {
         return result;
     }
 
-    unsubscribeMedias = () => {};
+    unsubscribeMedias = () => {
+    };
 
-    originalSlickNext = () => {};
+    originalSlickNext = () => {
+    };
 
-    originalSlickPrev = () => {};
+    originalSlickPrev = () => {
+    };
 
     setRef = (ref) => {
         this.element = ref;
@@ -161,7 +150,7 @@ class StroykaSlickBase extends Component {
         const downY = event.screenY;
 
         const onMousemove = (moveEvent) => {
-            const { preventClick } = this.state;
+            const {preventClick} = this.state;
 
             if (preventClick) {
                 return;
@@ -177,11 +166,11 @@ class StroykaSlickBase extends Component {
             }
 
             if (distance > 15) {
-                this.setState({ preventClick: true });
+                this.setState({preventClick: true});
             }
         };
         const onMouseup = () => {
-            this.setState({ preventClick: false });
+            this.setState({preventClick: false});
 
             document.removeEventListener('mousemove', onMousemove);
             document.removeEventListener('mouseup', onMouseup);
@@ -192,7 +181,7 @@ class StroykaSlickBase extends Component {
     };
 
     beforeChange = (oldIndex, newIndex) => {
-        const { beforeChange } = this.props;
+        const {beforeChange} = this.props;
 
         if (beforeChange) {
             beforeChange(oldIndex, newIndex);
@@ -201,12 +190,12 @@ class StroykaSlickBase extends Component {
         // react-slick incorrectly adds the .slick-active class to slides
         // if the RTL parameter is true so we will do it ourselves
         setTimeout(() => {
-            this.setState({ activeSlides: this.getActiveSlides(newIndex) });
+            this.setState({activeSlides: this.getActiveSlides(newIndex)});
         }, 0);
     };
 
     setSlickRef = (ref) => {
-        const { forwardRef } = this.props;
+        const {forwardRef} = this.props;
 
         if (forwardRef) {
             forwardRef(ref);
@@ -228,29 +217,15 @@ class StroykaSlickBase extends Component {
     };
 
     slickNext = () => {
-        const { locale } = this.props;
-        const { direction } = languages[locale];
 
-        if (direction === 'rtl') {
-            this.originalSlickPrev();
-        } else {
-            this.originalSlickNext();
-        }
     };
 
     slickPrev = () => {
-        const { locale } = this.props;
-        const { direction } = languages[locale];
 
-        if (direction === 'rtl') {
-            this.originalSlickNext();
-        } else {
-            this.originalSlickPrev();
-        }
     };
 
     createMedias() {
-        const { responsive, slidesToShow } = this.props;
+        const {responsive, slidesToShow} = this.props;
 
         if (responsive && responsive.length > 0) {
             const subscriptions = [];
@@ -259,10 +234,10 @@ class StroykaSlickBase extends Component {
                 const media = matchMedia(query);
 
                 const onChange = () => {
-                    const { matches } = media;
+                    const {matches} = media;
 
                     if (matches && slidesToShow) {
-                        this.setState(() => ({ slidesToShow }));
+                        this.setState(() => ({slidesToShow}));
                     }
                 };
 
@@ -305,12 +280,10 @@ class StroykaSlickBase extends Component {
         const {
             children,
             forwardRef,
-            locale,
             beforeChange,
             ...otherProps
         } = this.props;
-        const { preventClick, activeSlides, slidesToShow } = this.state;
-        const { direction } = languages[locale];
+        const {preventClick, activeSlides, slidesToShow} = this.state;
 
         const classes = classNames('slick-prevent-click', {
             'slick-prevent-click--active': preventClick,
@@ -320,18 +293,14 @@ class StroykaSlickBase extends Component {
         // because react-slick displays them in the wrong order
         let reversedChildren = React.Children.toArray(children);
 
-        if (direction === 'rtl') {
-            reversedChildren = children.slice(0);
-            reversedChildren.reverse();
-        }
 
         reversedChildren = reversedChildren.map((slide, index) => {
             // react-slick incorrectly adds the .slick-active class to slides
             // if the RTL parameter is true so we will do it ourselves
-            const slideClasses = classNames({ 'correct-slick-active': activeSlides.includes(index) });
+            const slideClasses = classNames({'correct-slick-active': activeSlides.includes(index)});
 
             return (
-                <div key={index} dir={direction} className={slideClasses}>
+                <div key={index} className={slideClasses}>
                     {slide}
                 </div>
             );
@@ -347,7 +316,6 @@ class StroykaSlickBase extends Component {
             >
                 <Slick
                     {...otherProps}
-                    rtl={direction === 'rtl'}
                     beforeChange={this.beforeChange}
                     infinite={otherProps.infinite && React.Children.count(children) > slidesToShow}
                     ref={this.setSlickRef}
@@ -359,16 +327,7 @@ class StroykaSlickBase extends Component {
     }
 }
 
-StroykaSlickBase.propTypes = {
-    /** current locale */
-    locale: PropTypes.string,
-};
-
-const mapStateToProps = (state) => ({
-    locale: state.locale,
-});
-
-const StroykaSlick = connect(mapStateToProps)(StroykaSlickBase);
+const StroykaSlick = StroykaSlickBase;
 
 export default React.forwardRef((props, ref) => (
     <StroykaSlick forwardRef={ref} {...props} />
